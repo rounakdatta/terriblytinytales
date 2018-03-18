@@ -52,15 +52,28 @@ def find_word(root, prefix: str):
 
 	return True, node.count
 
-url = "http://terriblytinytales.com/test.txt"
 
+url = "http://terriblytinytales.com/test.txt"
 data = requests.get(url).text.split()
+
+final_list = []
 
 root = TrieNode('__ttt__')
 for item in data:
-	add(root, item)
 
-query = input()
-foo, bar = find_word(root, query)
+	if(find_word(root, item)[0] == True):
 
-print("bar=" + str(bar))
+		target = list(filter(lambda x: item in x, final_list))
+		if(target != []):
+			target = target[0]
+			final_list[final_list.index(target)][1] += 1
+	
+	else:
+		add(root, item)
+		final_list.append([item, 1])
+
+print(len(final_list))
+
+# print the key -> count mapping list
+for i in final_list:
+	print(i)
