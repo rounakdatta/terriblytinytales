@@ -11,13 +11,10 @@ def index():
 	if request.method == 'POST' and 'count' in request.form:
 		n = request.form['count']
 
-		pylist = ttt.give_count(n)
+		pylist = ttt.give_count(n)[:int(n)]
+		pylist_2_htmltable(pylist)
 
-		#flash("hello")
-		table = pylist_2_htmltable(pylist)
-		#table.border = True
-
-		return render_template('index.html', table=table)
+		return render_template('result.html')
 	else:
 		return render_template('index.html')
 

@@ -1,17 +1,27 @@
-from flask_table import Table, Col, LinkCol
-
-class Results(Table):
-    id = Col('Id', show=False)
- 
-    phrase = Col('Phrase')
-    freq = Col('Frequency')
-
 def pylist_2_htmltable(pylist):
 
-	table = '<table border="1"><thead><tr><th>Phrase</th><th>Frequency</th></tr></thead>'
-	table += '<tbody>'
-	for item in pylist:
-		table += '<tr><td>' + str(item[0]) + '</td><td>' + str(item[1]) + '</td></tr>'
-	table += '</tbody></table>'
+	html = """<HTML>
+	 <head>
+    <title>Terribly Tiny Tales</title>
+  </head>
+  <body>
+    <h1>Terribly Tiny Tales</h1>
+    <form method="POST" action="">
+      <div>Count (N)<input style="margin-left:15px;" type="text" name="count">
+        <input style="margin-left:15px;" type="submit" name="submit" value="Submit">
+      </div>
+    </form>
+	<body>
+	    <table border="1">
+	    <thead><tr><th>Keyword</th><th>Frequency</th></tr></thead>
+	        {0}
+	    </table>
+	</body>
+	</HTML>"""
 	
-	return table
+	tr = "<tr>{0}</tr>"
+	td = "<td>{0}</td>"
+	subitems = [tr.format(''.join([td.format(a) for a in item])) for item in pylist]
+	with open('./templates/result.html', 'w') as f:
+		f.write(html.format("".join(subitems)))
+	#return (html.format("".join(subitems)))

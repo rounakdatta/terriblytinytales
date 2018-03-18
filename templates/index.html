@@ -10,18 +10,5 @@
         <input style="margin-left:15px;" type="submit" name="submit" value="Submit">
       </div>
     </form>
-
-    {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
-
-{{ table }}
-
   </body>
 </html>
