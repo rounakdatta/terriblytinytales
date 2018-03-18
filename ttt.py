@@ -28,7 +28,6 @@ def add(root, word: str):
 
 			node = new_node
 
-	# end of the branch is reached
 	node.branch_end = True
 
 def find_word(root, prefix: str):
@@ -52,35 +51,33 @@ def find_word(root, prefix: str):
 
 	return True, node.count
 
-
-url = "http://terriblytinytales.com/test.txt"
-data = requests.get(url).text.split()
-data = [elem.lower() for elem in data]
-
-final_list = []
-
-root = TrieNode('__ttt__')
-for item in data:
-
-	if(find_word(root, item)[0] == True):
-
-		target = list(filter(lambda x: item in x, final_list))
-		if(target != []):
-			target = target[0]
-			final_list[final_list.index(target)][1] += 1
-
-		else:
-			final_list.append([item, 1])	
+def give_count(n):
 	
-	else:
-		add(root, item)
-		final_list.append([item, 1])
-
-print(len(final_list))
-final_list = sorted(final_list, key=lambda x : x[1], reverse=True)
-
-n = int(input("N > "))
-
-# print the key -> count mapping list
-for i in final_list[:n]:
-	print(i)
+	url = "http://terriblytinytales.com/test.txt"
+	data = requests.get(url).text.split()
+	data = [elem.lower() for elem in data]
+	
+	final_list = []
+	
+	root = TrieNode('__ttt__')
+	for item in data:
+	
+		if(find_word(root, item)[0] == True):
+	
+			target = list(filter(lambda x: item in x, final_list))
+			if(target != []):
+				target = target[0]
+				final_list[final_list.index(target)][1] += 1
+	
+			else:
+				final_list.append([item, 1])	
+		
+		else:
+			add(root, item)
+			final_list.append([item, 1])
+	
+	print(len(final_list))
+	final_list = sorted(final_list, key=lambda x : x[1], reverse=True)
+	
+	for i in final_list[:int(n)]:
+		print(i)

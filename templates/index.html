@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Terribly Tiny Tales</title>
+  </head>
+  <body>
+    <h1>Terribly Tiny Tales</h1>
+    <form method="POST" action="">
+      <div>Count (N)<input style="margin-left:15px;" type="text" name="count">
+        <input style="margin-left:15px;" type="submit" name="submit" value="Submit">
+      </div>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{{ table }}
+
+  </body>
+</html>
