@@ -55,6 +55,7 @@ def find_word(root, prefix: str):
 
 url = "http://terriblytinytales.com/test.txt"
 data = requests.get(url).text.split()
+data = [elem.lower() for elem in data]
 
 final_list = []
 
@@ -67,6 +68,9 @@ for item in data:
 		if(target != []):
 			target = target[0]
 			final_list[final_list.index(target)][1] += 1
+
+		else:
+			final_list.append([item, 1])	
 	
 	else:
 		add(root, item)
@@ -75,6 +79,8 @@ for item in data:
 print(len(final_list))
 final_list = sorted(final_list, key=lambda x : x[1], reverse=True)
 
+n = int(input("N > "))
+
 # print the key -> count mapping list
-for i in final_list:
+for i in final_list[:n]:
 	print(i)
