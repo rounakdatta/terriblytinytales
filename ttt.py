@@ -73,6 +73,7 @@ for item in data:
 		final_list.append([item, 1])
 
 print(len(final_list))
+final_list = sorted(final_list, key=lambda x : x[1], reverse=True)
 
 # print the key -> count mapping list
 for i in final_list:
