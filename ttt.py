@@ -79,5 +79,7 @@ def give_count(n):
 	print(len(final_list))
 	final_list = sorted(final_list, key=lambda x : x[1], reverse=True)
 	
-	for i in final_list[:int(n)]:
-		print(i)
+	return final_list
+
+	# for i in final_list[:int(n)]:
+	#	print(i)

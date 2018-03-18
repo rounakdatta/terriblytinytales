@@ -1,7 +1,7 @@
 from flask import Flask, flash, render_template, request
 import os
 import ttt
-from tables import Results
+from tables import pylist_2_htmltable
 
 app = Flask(__name__)
 
@@ -11,11 +11,11 @@ def index():
 	if request.method == 'POST' and 'count' in request.form:
 		n = request.form['count']
 
-		ttt.give_count(n)
+		pylist = ttt.give_count(n)
 
 		#flash("hello")
-		table = Results(Results)
-		table.border = True
+		table = pylist_2_htmltable(pylist)
+		#table.border = True
 
 		return render_template('index.html', table=table)
 	else:
