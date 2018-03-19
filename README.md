@@ -7,7 +7,9 @@ This is an assignment for the application to **Terribly Tiny Tales** for their S
 * Uses list-of-lists to store the word set (word, frequency)
 * Flask web-sever to render the content to HTML tables
 
-## Local usage
+### Local usage
+
+```git clone https://github.com/rounakdatta/terriblytinytales.git```
 
 ```make```
 
