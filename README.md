@@ -33,5 +33,7 @@ Scripting and markup languages used : **Python**, **HTML**<br>
 Frameworks used : **Flask**<br>
 PaaS used : **Heroku**, **PythonAnywhere**<br>
 
+![Sample](https://github.com/rounakdatta/terriblytinytales/blob/master/demo/demo.gif)
+
 The demo is currently live at [tttales.tk](http://tttales.tk).<br>
 I've also made a blog post [here](http://rounakdatta.tk/2018/03/18/terriblytinytales.html).
