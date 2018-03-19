@@ -7,6 +7,10 @@ This is an assignment for the application to **Terribly Tiny Tales** for their S
 * Uses list-of-lists to store the word set (word, frequency)
 * Flask web-sever to render the content to HTML tables
 
+## Local usage
+
+```make```
+
 ### Working
 
 * First, the script scrapes the text file from [here](http://terriblytinytales.com/test.txt) using *requests* module.
